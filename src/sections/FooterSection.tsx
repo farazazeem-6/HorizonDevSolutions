@@ -1,18 +1,23 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight } from "lucide-react";
 
 const scrollTo = (id: string) =>
-  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-const NAV_LINKS = ['About', 'Services', 'Projects', 'Contact']
-const SERVICE_LINKS = ['WordPress Development', 'WooCommerce Stores', 'Custom Websites', 'Web Applications', 'Mobile Apps']
-const SOCIAL_LINKS = ['Twitter / X', 'LinkedIn', 'Dribbble', 'GitHub']
+const NAV_LINKS = ["About", "Services", "Projects", "Contact"];
+const SERVICE_LINKS = [
+  "WordPress Development",
+  "WooCommerce Stores",
+  "Custom Websites",
+  "Web Applications",
+  "Mobile Apps",
+];
+const SOCIAL_LINKS = ["Twitter / X", "LinkedIn", "Dribbble", "GitHub"];
 
 export default function FooterSection() {
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
 
   return (
     <footer className="bg-black border-t border-white/5 px-3 sm:px-4 md:px-6">
-
       {/* ══ CTA SECTION ══ */}
       <div className="max-w-6xl mx-auto pt-10 sm:pt-14 md:pt-16 pb-8 sm:pb-10 border-b border-white/5">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 sm:gap-8">
@@ -25,7 +30,7 @@ export default function FooterSection() {
             </h2>
           </div>
           <button
-            onClick={() => scrollTo('contact')}
+            onClick={() => scrollTo("contact")}
             className="group flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-4 sm:pl-5 pr-1 py-1 transition-all duration-300 self-start sm:self-center shrink-0 cursor-pointer border-none"
           >
             <span className="text-black font-medium text-xs sm:text-sm whitespace-nowrap">
@@ -41,12 +46,14 @@ export default function FooterSection() {
       {/* ══ LINKS SECTION ══ */}
       <div className="max-w-6xl mx-auto py-8 sm:py-10 md:py-12 border-b border-white/5">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6 md:gap-10">
-
           {/* Brand */}
           <div className="sm:col-span-1">
-            <p className="text-primary text-base sm:text-lg font-bold mb-2 sm:mb-3">HDS</p>
+            <p className="text-primary text-base sm:text-lg font-bold mb-2 sm:mb-3">
+              HDS
+            </p>
             <p className="text-gray-600 text-xs leading-relaxed max-w-[200px]">
-              A digital agency crafting premium WordPress, web, and mobile experiences from Lahore, Pakistan.
+              A digital agency crafting premium WordPress, web, and mobile
+              experiences from Lahore, Pakistan.
             </p>
           </div>
 
@@ -54,7 +61,9 @@ export default function FooterSection() {
           <div className="sm:col-span-2 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-4 md:gap-8">
             {/* Company nav */}
             <div>
-              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">Company</p>
+              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">
+                Company
+              </p>
               <ul className="flex flex-col gap-2 sm:gap-2.5">
                 {NAV_LINKS.map((item) => (
                   <li key={item}>
@@ -71,11 +80,16 @@ export default function FooterSection() {
 
             {/* Services */}
             <div className="col-span-1 sm:col-span-1">
-              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">Services</p>
+              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">
+                Services
+              </p>
               <ul className="flex flex-col gap-2 sm:gap-2.5">
                 {SERVICE_LINKS.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-primary/50 text-xs hover:text-primary transition-colors duration-200">
+                    <a
+                      href="#"
+                      className="text-primary/50 text-xs hover:text-primary transition-colors duration-200"
+                    >
                       {item}
                     </a>
                   </li>
@@ -85,12 +99,17 @@ export default function FooterSection() {
 
             {/* Connect */}
             <div className="col-span-2 sm:col-span-1">
-              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">Connect</p>
+              <p className="text-[10px] uppercase tracking-widest text-gray-600 mb-3 sm:mb-4">
+                Connect
+              </p>
               {/* On mobile — horizontal row of links */}
               <ul className="flex flex-row flex-wrap gap-x-4 gap-y-2 sm:flex-col sm:gap-2.5">
                 {SOCIAL_LINKS.map((item) => (
                   <li key={item}>
-                    <a href="#" className="text-primary/50 text-xs hover:text-primary transition-colors duration-200">
+                    <a
+                      href="#"
+                      className="text-primary/50 text-xs hover:text-primary transition-colors duration-200"
+                    >
                       {item}
                     </a>
                   </li>
@@ -112,7 +131,6 @@ export default function FooterSection() {
           </p>
         </div>
       </div>
-
     </footer>
-  )
+  );
 }
