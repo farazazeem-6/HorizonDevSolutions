@@ -38,7 +38,6 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
   const ref = useRef<HTMLDivElement>(null)
-  // const isInView = useInView(ref, { once: true, margin: '-60px' })
   const [currentIndex, setCurrentIndex] = useState(0)
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
 
