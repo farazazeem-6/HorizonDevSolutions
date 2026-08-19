@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { Globe, ShoppingCart, Code2, Layers, Smartphone, ArrowRight } from 'lucide-react'
+import { Globe, ShoppingCart, Code2, Layers, Smartphone, Search, Megaphone, Bot, ArrowRight } from 'lucide-react'
 import WordsPullUpMultiStyle from '../components/WordsPullUpMultiStyle'
 
 const SERVICES = [
@@ -39,6 +39,27 @@ const SERVICES = [
     desc: 'iOS and Android apps — native or cross-platform — with buttery-smooth interactions and a design your users will love. From concept to App Store launch.',
     highlights: ['iOS & Android', 'React Native / cross-platform', 'App Store submission', 'Push notifications & APIs'],
   },
+  {
+    icon: Search,
+    number: '06',
+    title: 'SEO',
+    desc: 'Get found by the people already searching for what you offer. Technical audits, on-page optimisation, keyword strategy, and content built to rank — with reporting that shows exactly where your traffic comes from.',
+    highlights: ['Technical SEO audits', 'Keyword & content strategy', 'On-page optimisation', 'Rank & traffic reporting'],
+  },
+  {
+    icon: Megaphone,
+    number: '07',
+    title: 'Digital Marketing',
+    desc: 'Campaigns that turn attention into customers. Paid ads, social media, email funnels, and landing pages — planned around your goals, measured properly, and adjusted based on what the numbers actually say.',
+    highlights: ['Google & Meta ads', 'Social media management', 'Email marketing funnels', 'Conversion tracking'],
+  },
+  {
+    icon: Bot,
+    number: '08',
+    title: 'AI Automation',
+    desc: 'Put the repetitive work on autopilot. Custom AI chatbots, lead qualification, document and data processing, and workflow integrations that connect the tools you already use — so your team spends time on what matters.',
+    highlights: ['Custom AI chatbots', 'Workflow automation', 'Lead qualification bots', 'API & tool integrations'],
+  },
 ]
 
 export default function ServicesSection() {
@@ -74,14 +95,11 @@ export default function ServicesSection() {
         >
           {SERVICES.map((svc, i) => {
             const Icon = svc.icon
-            const isLast = svc.number === '05'
 
             return (
               <motion.div
                 key={svc.title}
-                className={`group bg-[#0d0d0d] border border-white/5 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-primary/20 transition-all duration-500 cursor-pointer min-h-[300px] ${
-                  isLast ? 'md:col-span-2' : ''
-                }`}
+                className="group bg-[#0d0d0d] border border-white/5 rounded-2xl p-6 sm:p-8 flex flex-col justify-between hover:border-primary/20 transition-all duration-500 cursor-pointer min-h-[300px]"
                 initial={{ opacity: 0, y: 24 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}

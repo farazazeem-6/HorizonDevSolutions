@@ -17,6 +17,9 @@ const SERVICES = [
   "Custom Website",
   "Web Application",
   "Mobile App",
+  "SEO",
+  "Digital Marketing",
+  "AI Automation",
   "Other",
 ];
 
