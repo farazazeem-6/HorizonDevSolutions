@@ -32,3 +32,17 @@ img, video {
   background-repeat: repeat;
   background-size: 150px 150px;
 }
+
+/* Reveal-on-hover: only hide the element on devices that actually support
+   hover. On touch screens there is no hover, so it stays visible. */
+@media (hover: hover) and (pointer: fine) {
+  .hover-reveal {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  .group:hover .hover-reveal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,6 +1,6 @@
-import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { ExternalLink, ArrowRight } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+import { ExternalLink, ArrowRight, ChevronDown } from 'lucide-react'
 import WordsPullUpMultiStyle from '../components/WordsPullUpMultiStyle'
 
 interface Project {
@@ -65,11 +65,69 @@ const PROJECTS: Project[] = [
     span: 'wide',
     accentColor: '#8A8EB8',
   },
+  {
+    id: '05',
+    title: 'Northwind',
+    category: 'Custom Website',
+    year: '2023',
+    desc: 'Corporate site for a logistics firm — live shipment tracking, multi-language support, and a resource hub built for organic search.',
+    highlights: ['Custom Design', 'Multi-language', 'SEO'],
+    image: 'https://placehold.co/900x480/101010/7FA3A8?text=Northwind+Screenshot',
+    liveUrl: 'https://your-live-link.com',
+    span: 'wide',
+    accentColor: '#7FA3A8',
+  },
+  {
+    id: '06',
+    title: 'Lumen Studio',
+    category: 'WordPress',
+    year: '2023',
+    desc: 'Portfolio site for a photography studio with a custom gallery engine, client proofing areas, and booking enquiries.',
+    highlights: ['WordPress', 'Custom Theme', 'Gallery'],
+    image: 'https://placehold.co/440x480/101010/C2A878?text=Lumen+Screenshot',
+    liveUrl: 'https://your-live-link.com',
+    span: 'narrow',
+    accentColor: '#C2A878',
+  },
+  {
+    id: '07',
+    title: 'Pulse HR',
+    category: 'Web Application',
+    year: '2022',
+    desc: 'Internal HR dashboard handling onboarding, leave requests, and payroll exports with role-based access for 200+ staff.',
+    highlights: ['Dashboard', 'User Roles', 'Automation'],
+    image: 'https://placehold.co/440x480/101010/A88BA3?text=Pulse+HR+Screenshot',
+    liveUrl: 'https://your-live-link.com',
+    span: 'narrow',
+    accentColor: '#A88BA3',
+  },
+  {
+    id: '08',
+    title: 'Verde Kitchen',
+    category: 'WooCommerce Store',
+    year: '2022',
+    desc: 'Meal-kit subscription store with recurring billing, delivery zone logic, recipe content, and a fully custom cart experience.',
+    highlights: ['WooCommerce', 'Subscriptions', 'Custom Cart'],
+    image: 'https://placehold.co/900x480/101010/8FAF85?text=Verde+Kitchen+Screenshot',
+    liveUrl: 'https://your-live-link.com',
+    span: 'wide',
+    accentColor: '#8FAF85',
+  },
 ]
+
+const INITIAL_COUNT = 4
 
 export default function ProjectsSection() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-60px' })
+  const [expanded, setExpanded] = useState(false)
+
+  const visibleProjects = expanded ? PROJECTS : PROJECTS.slice(0, INITIAL_COUNT)
+
+  const handleCollapse = () => {
+    setExpanded(false)
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <section id="projects" className="bg-black py-14 sm:py-20 md:py-28 px-3 sm:px-4 md:px-6">
@@ -102,17 +160,26 @@ export default function ProjectsSection() {
 
         {/* ── Grid ── */}
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          {PROJECTS.map((project, i) => (
+          <AnimatePresence initial={false}>
+          {visibleProjects.map((project, i) => {
+            const isExtra = i >= INITIAL_COUNT
+            return (
             <motion.div
               key={project.id}
+              layout
               className={[
                 'group relative rounded-2xl overflow-hidden border border-white/5',
                 'hover:border-white/10 transition-all duration-500 flex flex-col bg-[#0a0a0a]',
                 project.span === 'wide' ? 'md:col-span-2' : 'md:col-span-1',
               ].join(' ')}
               initial={{ opacity: 0, y: 32 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: i * 0.11, ease: [0.22, 1, 0.36, 1] }}
+              animate={isExtra || isInView ? { opacity: 1, y: 0 } : {}}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{
+                duration: 0.7,
+                delay: (isExtra ? (i - INITIAL_COUNT) : i) * 0.11,
+                ease: [0.22, 1, 0.36, 1],
+              }}
             >
               {/* ── Image placeholder ── */}
               <div
@@ -131,13 +198,13 @@ export default function ProjectsSection() {
                     background: `linear-gradient(90deg, transparent, ${project.accentColor}, transparent)`,
                   }}
                 />
-                {/* Live link — reveals on hover */}
+                {/* Live link — reveals on hover; always visible on touch devices */}
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="absolute top-3 right-3 flex items-center gap-1.5 text-[10px] font-medium px-2.5 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0"
+                  className="hover-reveal absolute top-3 right-3 flex items-center gap-1.5 text-[10px] font-medium px-2.5 py-1.5 rounded-full transition-all duration-300"
                   style={{
                     backgroundColor: `${project.accentColor}20`,
                     color: project.accentColor,
@@ -191,8 +258,28 @@ export default function ProjectsSection() {
               </div>
 
             </motion.div>
-          ))}
+            )
+          })}
+          </AnimatePresence>
         </div>
+
+        {/* ── Show more / less ── */}
+        <motion.div layout className="flex justify-center mt-8 sm:mt-10">
+          <button
+            onClick={() => (expanded ? handleCollapse() : setExpanded(true))}
+            aria-expanded={expanded}
+            className="group flex items-center gap-2 rounded-full border border-white/10 bg-[#0d0d0d] px-5 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm text-primary/70 hover:text-primary hover:border-primary/30 transition-all duration-300 cursor-pointer"
+          >
+            {expanded ? 'Show less' : `Show ${PROJECTS.length - INITIAL_COUNT} more projects`}
+            <motion.span
+              className="flex items-center justify-center"
+              animate={{ rotate: expanded ? 180 : 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ChevronDown size={15} />
+            </motion.span>
+          </button>
+        </motion.div>
 
       </div>
     </section>

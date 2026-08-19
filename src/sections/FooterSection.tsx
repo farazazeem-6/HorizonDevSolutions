@@ -3,13 +3,16 @@ import { ArrowRight } from "lucide-react";
 const scrollTo = (id: string) =>
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-const NAV_LINKS = ["About", "Services", "Projects", "Contact"];
+const NAV_LINKS = ["About", "Services", "Projects", "FAQ", "Contact"];
 const SERVICE_LINKS = [
   "WordPress Development",
   "WooCommerce Stores",
   "Custom Websites",
   "Web Applications",
   "Mobile Apps",
+  "SEO",
+  "Digital Marketing",
+  "AI Automation",
 ];
 const SOCIAL_LINKS = ["Twitter / X", "LinkedIn", "Dribbble", "GitHub"];
 
@@ -52,8 +55,8 @@ export default function FooterSection() {
               HDS
             </p>
             <p className="text-gray-600 text-xs leading-relaxed max-w-[200px]">
-              A digital agency crafting premium WordPress, web, and mobile
-              experiences from Lahore, Pakistan.
+              A digital agency building, marketing, and automating premium
+              digital experiences from Lahore, Pakistan.
             </p>
           </div>
 
