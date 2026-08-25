@@ -14,7 +14,7 @@ const SERVICE_LINKS = [
   "Digital Marketing",
   "AI Automation",
 ];
-const SOCIAL_LINKS = ["Twitter / X", "LinkedIn", "Dribbble", "GitHub"];
+const SOCIAL_LINKS = ["Twitter / X", "LinkedIn", "Instagram", "GitHub"];
 
 export default function FooterSection() {
   const year = new Date().getFullYear();
