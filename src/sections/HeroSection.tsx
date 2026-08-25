@@ -3,7 +3,7 @@ import WordsPullUp from '../components/WordsPullUp'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Menu, X } from 'lucide-react'
 
-const NAV_ITEMS = ['Home', 'About', 'Services', 'Projects', 'FAQ', 'Contact']
+const NAV_ITEMS = ['About', 'Services', 'Projects', 'FAQ', 'Contact']
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -38,7 +38,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="h-screen p-3 sm:p-4 md:p-6 bg-black">
+    <section id="hero" className="h-screen p-3 sm:p-4 md:p-6 bg-black">
       <div className="relative w-full h-full rounded-2xl md:rounded-[2rem] overflow-hidden">
 
         {/* Background video */}
