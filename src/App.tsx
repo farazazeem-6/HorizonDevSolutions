@@ -7,6 +7,7 @@ import ProjectsSection from './sections/ProjectsSection'
 import ServicesSection from './sections/ServicesSection'
 import TestimonialsSection from './sections/TestimonialsSection'
 import FaqSection from './sections/FaqSection'
+import ScrollToTopButton from './components/ScrollToTopButton'
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <FaqSection />
       <ContactSection />
       <FooterSection />
+      <ScrollToTopButton />
     </main>
   )
 }
