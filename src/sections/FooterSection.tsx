@@ -34,7 +34,7 @@ export default function FooterSection() {
           </div>
           <button
             onClick={() => scrollTo("contact")}
-            className="group flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 sm:pl-6 pr-1.5 py-1.5 transition-all duration-300 self-start sm:self-center shrink-0 cursor-pointer border-none"
+            className="group flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-5 sm:pl-6 pr-1.5 py-1.5 transition-all duration-300 self-start sm:self-center shrink-0 cursor-pointer border-none shadow-[0_0_24px_-4px_rgba(127,186,140,0.55)] hover:shadow-[0_0_32px_-2px_rgba(127,186,140,0.75)]"
           >
             <span className="text-black font-medium text-sm sm:text-base whitespace-nowrap">
               Start a project

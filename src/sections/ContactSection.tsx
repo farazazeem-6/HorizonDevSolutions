@@ -171,7 +171,7 @@ export default function ContactSection() {
               {/* Submit */}
               <button
                 type="submit"
-                className="group self-start flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-4 sm:pl-5 pr-1 py-1 transition-all duration-300 cursor-pointer"
+                className="group self-start flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-4 sm:pl-5 pr-1 py-1 transition-all duration-300 cursor-pointer shadow-[0_0_24px_-4px_rgba(127,186,140,0.55)] hover:shadow-[0_0_32px_-2px_rgba(127,186,140,0.75)]"
               >
                 <span className="text-black font-medium text-xs sm:text-sm whitespace-nowrap">
                   {sent ? "Message sent!" : "Send message"}
