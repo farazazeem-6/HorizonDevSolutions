@@ -219,7 +219,7 @@ export default function HeroSection() {
                 initial="initial"
                 animate="animate"
                 transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="group flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-4 pr-1 py-1 transition-all duration-300 cursor-pointer border-none"
+                className="group flex items-center gap-2 hover:gap-3 bg-primary rounded-full pl-4 pr-1 py-1 transition-all duration-300 cursor-pointer border-none shadow-[0_0_24px_-4px_rgba(127,186,140,0.55)] hover:shadow-[0_0_32px_-2px_rgba(127,186,140,0.75)]"
               >
                 <span className="text-black font-medium text-xs sm:text-sm whitespace-nowrap">
                   View our work
