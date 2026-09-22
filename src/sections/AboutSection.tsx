@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const STATS = [
-  { value: "50+", label: "Projects shipped" },
-  { value: "2+", label: "Years of craft" },
-  { value: "30+", label: "Happy clients" },
+  { value: "30+", label: "Projects shipped" },
+  { value: "3+", label: "Years of craft" },
+  { value: "20+", label: "Happy clients" },
   { value: "100%", label: "Satisfaction rate" },
 ];
 
@@ -17,6 +17,7 @@ const SPECIALTIES = [
   "Web Applications",
   "Mobile Apps",
   "UI/UX Design",
+  "SEO"
 ];
 
 export default function AboutSection() {
